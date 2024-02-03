@@ -4,9 +4,18 @@ customers as (
     select * from RAW_DATABASE.SQL_ECOM_DBO.customers
    
 ),
-
+/*
+customers
+orders
+geo_location
+order_items
+order_payments
+order_review_ratings
+products
+sellers
+*/
 orders as (
-    select * from RAW_DATABASE.SQL_ECOM_DBO.ORDERS
+    select * from RAW_DATABASE.SQL_ECOM_DBO.orders
 ),
 
 geo_location as (
@@ -35,7 +44,7 @@ products as (
 
 sellers as (
     select * from RAW_DATABASE.SQL_ECOM_DBO.sellers
-    
+   LIMIT 10 
 )
 
 select * from sellers

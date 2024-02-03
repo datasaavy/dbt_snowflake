@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+    - name: ecomm
+      description: This is a replica of the Postgres database used by our app
+      database: RAW_DATABASE
+      schema: SQL_ECOM_DBO
+      tables:
+          - name: customers
+            description: One record per customer.
+          - name: orders
+            description: describe table
+          - name: products
+            description: describe table
+          - name: sellers
+            description: describe table
+          - name: geo_location
+            description: describe table
+          - name: order_payments
+            description: describe table
+          - name: order_review_ratings
+            description: describe table
+          - name: order_items
+            description: describe table
+
+#customers
+#orders
+#geo_location
+#order_items
+#order_payments
+#order_review_ratings
+#products
+#sellers
