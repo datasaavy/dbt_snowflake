@@ -3,5 +3,4 @@ with products as (
     )
 SELECT * FROM products
 
-LIMIT 10
 

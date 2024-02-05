@@ -1,4 +1,13 @@
-final_tab as (
+with 
+order_and_order_items as (
+    select * from {{ ref('int_order_and_order_items') }}
+),
+
+order_items_and_products as (
+    select * from {{ ref('int_order_items_and_products') }}
+),
+
+product_sales as (
     select
         oot.order_id,
         oot.order_date,
@@ -15,4 +24,4 @@ final_tab as (
     
 )
 
-select * from final_tab
+select * from product_sales
