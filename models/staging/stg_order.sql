@@ -1,5 +1,7 @@
-with orders as (select * from {{ source("ecomm", "orders") }}) 
-select 
+with orders as (select * from {{ source("ecomm", "orders") }}),
+
+order_extract as (
+    select 
     order_id, 
     order_status, 
     order_purchase_timestamp, 
@@ -8,7 +10,6 @@ select
     to_time(order_purchase_timestamp) as order_time,
     extract(year from order_date) as order_year,
     extract(month from order_date) as order_month,
-    extract(year from order_date) as order_year,
     case
         when extract(month from order_date) = 1 then 'January'
         when extract(month from order_date) = 2 then 'February'
@@ -29,10 +30,9 @@ select
         else 'Invalid month'
     end as order_month_name
 
-from orders
+    from orders
+)
+
+select * from order_extract
 LIMIT 10
 
-/*
-month = DATEPART(MONTH, datetime_column)
-year = DATEPART(YEAR, datetime_column);
-*/
