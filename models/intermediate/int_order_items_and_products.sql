@@ -1,3 +1,11 @@
+with order_items as (
+    select * from {{ ref('stg_order_items') }}
+),
+
+products as (
+    select * from {{ ref('stg_products') }}
+),
+
 order_items_and_products as (
     select 
         ot.order_id as order_id,

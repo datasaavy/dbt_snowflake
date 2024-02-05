@@ -34,5 +34,4 @@ order_extract as (
 )
 
 select * from order_extract
-LIMIT 10
 

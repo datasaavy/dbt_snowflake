@@ -1,3 +1,11 @@
+with order_extract as   (
+    select * from {{ ref('stg_order') }}
+),
+
+order_items as  (
+    select * from {{ ref('stg_order_items') }}
+),
+
 order_and_order_items as (
 select 
     oe.order_id as order_id,
@@ -13,4 +21,4 @@ order_items ot
 USING(order_id) 
 )
 
-select * from order_with_items
+select * from order_and_order_items
